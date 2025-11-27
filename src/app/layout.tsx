@@ -9,6 +9,8 @@ export const metadata = {
   description: 'Bid on products and sell your own items.'
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const user = await getCurrentUser();
 

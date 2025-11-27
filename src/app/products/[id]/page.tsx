@@ -1,6 +1,8 @@
 import { prisma } from '../../../lib/prisma';
 import BiddingClient from './product-bid-client';
 
+export const dynamic = 'force-dynamic';
+
 interface ProductPageProps {
   params: { id: string };
 }

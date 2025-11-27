@@ -75,4 +75,17 @@ The **highest bid is always shown on top** for each product.
 - `/products/new` – add product
 - `/products/[id]` – product details + bidding UI
 
+### Deployment (Vercel)
+
+1. **Database Setup**: For production, you need a PostgreSQL database (SQLite won't work on Vercel).
+   - Use services like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), [Supabase](https://supabase.com), or [Neon](https://neon.tech)
+   - Update `prisma/schema.prisma` to use `provider = "postgresql"` instead of `"sqlite"`
+   - Run migrations: `npx prisma migrate deploy`
+
+2. **Environment Variables** (set in Vercel dashboard):
+   - `DATABASE_URL` - Your PostgreSQL connection string
+   - `JWT_SECRET` - A strong random secret for JWT signing
+
+3. **Build**: The `postinstall` script automatically runs `prisma generate` during deployment.
+
 
